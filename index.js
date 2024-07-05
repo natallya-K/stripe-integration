@@ -47,6 +47,9 @@ app.post('/checkout', async (req, res) => {
             payment_method_types: ['card'],
             line_items: lineItems,
             mode: 'payment',
+            shipping_address_collection: {
+                allowed_countries: ['US', 'CA', 'GB', 'BE', 'AU', 'DE', 'FR', 'IT', 'JP', 'NL', 'NZ', 'ES', 'CH', 'AT', 'DK', 'NO', 'SE', 'SG'],
+            },
             success_url: `${process.env.BASE_URL}/success?session_id={CHECKOUT_SESSION_ID}`,
             cancel_url: `${process.env.BASE_URL}/cancel`,
         });
